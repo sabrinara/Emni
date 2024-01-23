@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Add Post{% endblock %}
+
+{% block content %}
+
+<div class="container mx-auto my-10 p-8 bg-transparent  bg-[url('{% static 'add_post.jpg' %}')]" style="background-image: url('{% static 'add_post.jpg' %}'); background-size: cover; opacity: 0.9;">
+    <h1 class="text-3xl font-bold mb-6">Add Post</h1>
+    <img src="{% static '../static/add_post.jpg' %}" alt="">
+    <form method="post" enctype="multipart/form-data">
+      {% csrf_token %}
+      {{ form.as_p }}
+      <button type="submit" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+        Add Post
+      </button>
+    </form>
+    <a href="{% url 'my_posts' %}" class="text-blue-500 mt-4 block">Back to Dashboard</a>
+  </div>
+{% endblock %}
